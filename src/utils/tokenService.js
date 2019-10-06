@@ -1,3 +1,11 @@
+
+export default {
+    setToken,
+    getToken,
+    removeToken,
+    getUserFromToken
+};
+
 function setToken(token) {
     if (token) {
       localStorage.setItem('token', token);
@@ -8,6 +16,7 @@ function setToken(token) {
   
   function getToken() {
     let token = localStorage.getItem('token');
+    //if token doesn't exist, it is null by default
     if (token) {
       // Check if expired, remove if it is
       const payload = JSON.parse(atob(token.split('.')[1]));
@@ -29,9 +38,3 @@ function setToken(token) {
     localStorage.removeItem('token');
   }
   
-  export default {
-    setToken,
-    getToken,
-    removeToken,
-    getUserFromToken
-  };
