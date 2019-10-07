@@ -26,6 +26,7 @@ class App extends Component {
    /*--- Callback Methods ---*/
   handleLogout = () => {
     userService.logout();
+    //will remove user object from state
     this.setState({ user: null });
   }
 
@@ -42,6 +43,7 @@ class App extends Component {
         <Route exact path='/' render={()=>
           <HomePage 
             user={this.state.user}
+            handleLogout={this.handleLogout}
           />
         }/>
         <Route exact path='/signup' render={({ history }) => 

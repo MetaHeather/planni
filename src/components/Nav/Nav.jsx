@@ -5,7 +5,7 @@ const NavBar = (props) => {
     //if a user is logged in show logout, else show login/signup
     let nav = props.user ?
       <div>
-        <Link to='' className={styles.NavBar-link}>LOG OUT</Link>
+        <Link to='' onClick={props.handleLogout} className={styles.NavBar-link}>LOG OUT</Link>
         &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
         <span className={styles.NavBar-welcome}>WELCOME, {props.user.name}</span>
       </div>
