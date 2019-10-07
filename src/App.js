@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import { Route, Switch } from 'react-router-dom';
 import './App.css';
-import Nav from './components/Nav/Nav';
+import userService from '../../utils/userService';
+import tokenService from '../../utils/tokenService';
 import SignupPage from '../SignupPage/SignupPage';
 import LoginPage from '../LoginPage/LoginPage';
 
@@ -39,7 +40,9 @@ class App extends Component {
     return(
       <Switch>
         <Route exact path='/' render={()=>
-          <Nav />
+          <HomePage 
+            user={this.state.user}
+          />
         }/>
         <Route exact path='/signup' render={({ history }) => 
           <SignupPage
