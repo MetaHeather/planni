@@ -1,11 +1,11 @@
 import React from 'react';
-import NavBar from '../../components/NavBar/NavBar';
+import Nav from '../../components/Nav/Nav';
 import styles from './HomePage.module.css';
 
-const GamePage = (props) => {
+const HomePage = (props) => {
   return (
     <div>
-      <NavBar
+      <Nav
         user={props.user}
         handleLogout={props.handleLogout}
       />

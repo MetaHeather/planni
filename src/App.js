@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import { Route, Switch } from 'react-router-dom';
 import './App.css';
-import userService from '../../utils/userService';
-import tokenService from '../../utils/tokenService';
-import SignupPage from '../SignupPage/SignupPage';
-import LoginPage from '../LoginPage/LoginPage';
+import userService from './utils/userService';
+import tokenService from './utils/tokenService';
+import SignupPage from './pages/SignupPage/SignupPage';
+import LoginPage from './pages/LoginPage/LoginPage';
+import HomePage from './pages/HomePage/HomePage';
 
 class App extends Component {
   constructor() {
