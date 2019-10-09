@@ -4,7 +4,8 @@ module.exports = {
     create,
     show,
     deleteOne,
-    update
+    update,
+    index
 }
 
 async function create(req, res) {
@@ -36,9 +37,19 @@ async function deleteOne(req, res) {
 
 async function update(req, res) {
     try{
-        const updatedAssignment = await Assignment.findByIdAndUpdate(req.params.id); 
+        const updatedAssignment = await Assignment.findByIdAndUpdate(req.params.id, req.body, {new: true}); 
         res.status(201).json(updatedAssignment);
     } catch (err) {
         res.status(400).json(err);
     }
 }
+
+async function index(req, res) {
+    try{
+        const assignments = await Assignment.find({});
+         res.status(200).json(assignments);
+    } catch (err) {
+        res.status(400).json(err);
+    }
+  }
+
