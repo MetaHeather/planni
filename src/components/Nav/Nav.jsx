@@ -16,6 +16,7 @@ const Nav = (props) => {
         &nbsp;&nbsp;|&nbsp;&nbsp;
         <Link to='/signup' className={styles.link}>SIGN UP</Link>
       </div>;
+      
   
     return (
       <div className={styles.NavBar}>

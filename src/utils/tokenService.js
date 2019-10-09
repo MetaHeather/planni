@@ -29,12 +29,14 @@ function setToken(token) {
     return token;
   }
   
+  function removeToken() {
+    localStorage.removeItem('token');
+  }
+
   function getUserFromToken() {
     const token = getToken();
     return token ? JSON.parse(atob(token.split('.')[1])).user : null;
   }
   
-  function removeToken() {
-    localStorage.removeItem('token');
-  }
+
   
