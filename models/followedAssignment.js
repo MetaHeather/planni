@@ -12,7 +12,13 @@ const followedAssignmentSchema = new Schema({
         ref: 'Assignment',
     },
     isDone: Boolean,
-    checklist: [{}]
+    checklist: [{
+        item:{
+            type: Schema.Types.ObjectId,
+            ref: 'ChecklistItem'
+        },
+        isDone: Boolean
+    }]
 });
 
 module.exports = mongoose.model('FollowedAssignment', followedAssignmentSchema);
