@@ -27,7 +27,7 @@ async function show(req, res) {
 
 async function deleteOne(req, res) {
     try{
-        const deletedAssignment = await Assignment.findByIdAndRelete(req.params.id);
+        const deletedAssignment = await Assignment.findByIdAndDelete(req.params.id);
         res.status(201).json(deletedAssignment);
     } catch(err){
         res.status(400).json(err);
