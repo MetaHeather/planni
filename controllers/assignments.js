@@ -46,7 +46,7 @@ async function update(req, res) {
 
 async function index(req, res) {
     try{
-        const assignments = await Assignment.find({});
+        const assignments = await Assignment.find({creator: req.user._id});
          res.status(200).json(assignments);
     } catch (err) {
         res.status(400).json(err);

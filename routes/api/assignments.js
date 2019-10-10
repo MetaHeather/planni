@@ -9,8 +9,8 @@ const { checkAuth } = require('../utilities');
 router.use(require('../../config/auth'));
 router.get('/', assignmentCtrl.index);
 router.post('/', checkAuth, assignmentCtrl.create);
-router.delete('/:id', checkAuth, assignmentCtrl.deleteOne)
-router.put('/:id', checkAuth, assignmentCtrl.update)
+router.delete('/:id', checkAuth, assignmentCtrl.deleteOne);
+router.put('/:id', checkAuth, assignmentCtrl.update);
 router.get('/:id', checkAuth, assignmentCtrl.show);
 
 
