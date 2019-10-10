@@ -8,6 +8,7 @@ import tokenService from './utils/tokenService';
 import SignupPage from './pages/SignupPage/SignupPage';
 import LoginPage from './pages/LoginPage/LoginPage';
 import HomePage from './pages/HomePage/HomePage';
+import AddAssignmentPage from './pages/AddAssignmentPage/AddAssignmentPage'
 
 class App extends Component {
   constructor() {
@@ -17,6 +18,18 @@ class App extends Component {
       // Initialize user if there's a token, otherwise null
       user: userService.getUser()
     };
+  }
+
+   /*--- Handler Methods ---*/
+  handleCreateAssignment = async newAssignmentData => {
+    //creates new assignment from form on create page
+    const newAssignment = await assignmentService.createAssignment(newAssignmentData);
+    this.setState(state => ({
+      //replaces state with new array containing existing assignments and adding new one
+      assignments: [...state.assignments, newAssignment]
+      //call back function as 2nd argument, redirects to home page
+    }), () => this.props.history.push('/'));
+
   }
 
 
@@ -48,6 +61,12 @@ class App extends Component {
             user={this.state.user}
             handleLogout={this.handleLogout}
             assignments={this.state.assignments}
+          />
+        }/>
+        <Route exact path='/assignment/create' render={() =>
+          <AddAssignmentPage 
+            user={this.state.user}
+            handleCreateAssignment={this.handleCreateAssignment}
           />
         }/>
         <Route exact path='/signup' render={({ history }) => 
