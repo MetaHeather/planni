@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import { Route, Switch } from 'react-router-dom';
 import './App.css';
+import assignmentService from './utils/assignmentService'
 import userService from './utils/userService';
 import tokenService from './utils/tokenService';
 import SignupPage from './pages/SignupPage/SignupPage';
@@ -12,17 +13,12 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      ...this.getInitialState(),
+      assignments: null,
       // Initialize user if there's a token, otherwise null
       user: userService.getUser()
     };
   }
 
-  getInitialState() {
-    return {
-
-    };
-  }
 
    /*--- Callback Methods ---*/
   handleLogout = () => {
@@ -36,6 +32,12 @@ class App extends Component {
   }
 
   /*--- Lifecycle Methods ---*/
+  async componentDidMount() {
+    //get all assignments using assignment service function
+    const assignments = await assignmentService.getAllAssignments();
+    //set assignment property in state to 
+    this.setState({assignments})
+  }
 
 
   render() {
@@ -45,6 +47,7 @@ class App extends Component {
           <HomePage 
             user={this.state.user}
             handleLogout={this.handleLogout}
+            assignments={this.state.assignments}
           />
         }/>
         <Route exact path='/signup' render={({ history }) => 

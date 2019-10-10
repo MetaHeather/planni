@@ -10,6 +10,7 @@ module.exports = {
 
 async function create(req, res) {
     try {
+        req.body.creator = req.user._id;
         const assignment = await Assignment.create(req.body);
         res.status(201).json(assignment);
     } catch(err) {
@@ -19,7 +20,9 @@ async function create(req, res) {
 
 async function show(req, res) {
     try{
-        const assignment = await Assignment.findById(req.params.id);
+        //find assignment that matches both the logged in user and the assignment id
+        const assignment = await Assignment
+            .findOne({_id: req.params.id, creator: req.user._id});
         res.status(201).json(assignment);
     } catch(err){
         res.status(400).json(err);
@@ -28,7 +31,9 @@ async function show(req, res) {
 
 async function deleteOne(req, res) {
     try{
-        const deletedAssignment = await Assignment.findByIdAndDelete(req.params.id);
+        //find assignment that matches both the logged in user and the assignment id
+        const deletedAssignment = await Assignment
+            .findOneAndDelete({_id: req.params.id, creator: req.user._id});
         res.status(201).json(deletedAssignment);
     } catch(err){
         res.status(400).json(err);
@@ -37,7 +42,11 @@ async function deleteOne(req, res) {
 
 async function update(req, res) {
     try{
-        const updatedAssignment = await Assignment.findByIdAndUpdate(req.params.id, req.body, {new: true}); 
+        console.log("update")
+        //find assignment that matches both the logged in user and the assignment id
+        const updatedAssignment = await Assignment
+            .findOneAndUpdate({_id: req.params.id, creator: req.user._id}, req.body, {new: true});
+        console.log("updatedAssignment: ",updatedAssignment);
         res.status(201).json(updatedAssignment);
     } catch (err) {
         res.status(400).json(err);

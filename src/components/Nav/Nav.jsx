@@ -5,17 +5,16 @@ import styles from './Nav.module.css'
 const Nav = (props) => {
     //if a user is logged in show logout, else show login/signup
     let nav = props.user ?
-      <div>
-        <Link to='' onClick={props.handleLogout} className={styles.link}>LOG OUT</Link>
-        &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-        <span className={styles.welcome}>WELCOME, {props.user.name}</span>
-      </div>
+      <>
+        <span className={styles.welcome}>{props.user.name}'s Planni</span>
+        <Link to='' onClick={props.handleLogout} className={styles.link}>Log Out</Link>
+      </>
       :
-      <div>
-        <Link to='/login' className={styles.link}>LOG IN</Link>
-        &nbsp;&nbsp;|&nbsp;&nbsp;
-        <Link to='/signup' className={styles.link}>SIGN UP</Link>
-      </div>;
+      <>
+        <Link to='/'>Planni</Link>
+        <Link to='/login' className={styles.link}>Log In</Link>
+        <Link to='/signup' className={styles.link}>Sign Up</Link>
+      </>;
       
   
     return (
