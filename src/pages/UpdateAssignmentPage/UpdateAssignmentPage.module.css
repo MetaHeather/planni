@@ -1,0 +1,23 @@
+.updatePage {
+    display: grid;
+    grid-auto-flow: row;
+    justify-items: start;
+    align-content: start;
+    grid-gap: 5vmin;
+    color: white;
+    background-color: #173753;
+    padding: 2vmin;
+    font-size: 3vmin;
+}
+
+.updateHeader {
+    font-family: 'Special Elite', cursive;
+    font-size: 5vmin;
+    color: white;
+}
+
+.layout {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    min-height: 100vh;
+}

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styles from './Assignment.module.css'
+import ButtonLink from '../../components/ButtonLink/ButtonLink'
 
 const Assignment = props => {
    //hook for holding state of card flip
@@ -9,12 +10,13 @@ const Assignment = props => {
    function flipCard() {
       setViewFront(!viewFront);
    }
+   let date = new Date(props.assignment.dueDate);
    if(viewFront) {
       return(
          <div className={styles.assignmentCard} onClick={flipCard}>
             <ul>
                <li>Title: {props.assignment.title}</li>
-               <li >Due Date: {props.assignment.dueDate}</li>
+               <li >Due Date: {date.toLocaleString()}</li>
             </ul>
          </div>
       ) 
@@ -24,6 +26,8 @@ const Assignment = props => {
             <ul >
                <li>Details:</li>
                <li>{props.assignment.details}</li>
+               <ButtonLink to={`/assignment/${props.assignment._id}/edit`} className={styles.greenButton}>Edit</ButtonLink>
+               <ButtonLink className={styles.greenButton}>Delete</ButtonLink>
             </ul>
          </div>
       )

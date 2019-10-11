@@ -9,6 +9,10 @@
     background-color: #396DAD;
 }
 
+.greenButton{
+    background-color: #81BA7A;
+}
+
 li {
     list-style-type: none;
     font-family: 'Special Elite', cursive;

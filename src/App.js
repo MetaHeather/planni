@@ -9,6 +9,8 @@ import SignupPage from './pages/SignupPage/SignupPage';
 import LoginPage from './pages/LoginPage/LoginPage';
 import HomePage from './pages/HomePage/HomePage';
 import AddAssignmentPage from './pages/AddAssignmentPage/AddAssignmentPage'
+import UpdateAssignmentPage from './pages/UpdateAssignmentPage/UpdateAssignmentPage'
+
 
 class App extends Component {
   constructor() {
@@ -29,10 +31,17 @@ class App extends Component {
       assignments: [...state.assignments, newAssignment]
       //call back function as 2nd argument, redirects to home page
     }), () => this.props.history.push('/'));
-
   }
 
-
+  handleUpdateAssignment = async newAssignmentData => {
+    //creates new assignment from form on update page
+    const updatedAssignment = await assignmentService.updateAssignment(newAssignmentData);
+    this.setState(state => ({
+      //replaces state with new array replacing updated assignment with new data
+      assignments: state.assignments.map(a => a._id === updatedAssignment._id ? updatedAssignment : a)
+      //call back function as 2nd argument, redirects to home page
+    }), () => this.props.history.push('/'));
+  }
    /*--- Callback Methods ---*/
   handleLogout = () => {
     userService.logout();
@@ -69,6 +78,13 @@ class App extends Component {
             handleCreateAssignment={this.handleCreateAssignment}
           />
         }/>
+        <Route exact path='/assignment/:id/edit' render={({ history }) => 
+          <UpdateAssignmentPage
+            handleUpdateAssignment={this.handleUpdateAssignment}
+            user={this.state.user}
+            history={history}
+          />
+        }/>
         <Route exact path='/signup' render={({ history }) => 
           <SignupPage
               history={history}
@@ -81,6 +97,7 @@ class App extends Component {
             handleSignupOrLogin={this.handleSignupOrLogin}
           />
         }/>
+        
       </Switch>
     )
   }
