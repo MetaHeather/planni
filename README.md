@@ -14,6 +14,9 @@ HTML
 CSS
 Heroku Deployment
 
+## Planning
+[Link to Trello](https://trello.com/b/sv52IfVC/project-4)
+
 ## Getting Started: 
 Get started with Planni by logging in creating some assignments.  
 On the home page your assignments will be listed on cards that show the assignments title and the due date, you can click on the card to see more details and access a button to either update or delete the assignment.  Any assignmnets you create are private to your account.
