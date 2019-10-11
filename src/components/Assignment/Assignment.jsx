@@ -6,10 +6,16 @@ const Assignment = props => {
    //hook for holding state of card flip
    //deconstructing array, first item holds state, second item can update state
    let [viewFront, setViewFront] = useState(true);
+
    //flips card by reversing state
    function flipCard() {
       setViewFront(!viewFront);
    }
+
+   function handleDeleteAssignment(){
+      props.handleDeleteAssignment(props.assignment._id)
+   }
+
    let date = new Date(props.assignment.dueDate);
    if(viewFront) {
       return(
@@ -27,7 +33,7 @@ const Assignment = props => {
                <li>Details:</li>
                <li>{props.assignment.details}</li>
                <ButtonLink to={`/assignment/${props.assignment._id}/edit`} className={styles.greenButton}>Edit</ButtonLink>
-               <ButtonLink className={styles.greenButton}>Delete</ButtonLink>
+               <ButtonLink onClick={handleDeleteAssignment} className={styles.greenButton}>Delete</ButtonLink>
             </ul>
          </div>
       )

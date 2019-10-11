@@ -42,11 +42,19 @@ class App extends Component {
       //call back function as 2nd argument, redirects to home page
     }), () => this.props.history.push('/'));
   }
+
+  handleDeleteAssignment = async id => {
+    await assignmentService.deleteAssignment(id);
+    this.setState(state => ({
+      assignments: state.assignments.filter(a => a._id !== id)
+    }), () => this.props.history.push('/'));
+  }
+  
    /*--- Callback Methods ---*/
   handleLogout = () => {
     userService.logout();
     //will remove user object from state
-    this.setState({ user: null });
+    this.setState(state => ({ user: null }), () => this.props.history.push('/login'));
   }
 
   handleSignupOrLogin = () => {
@@ -70,6 +78,7 @@ class App extends Component {
             user={this.state.user}
             handleLogout={this.handleLogout}
             assignments={this.state.assignments}
+            handleDeleteAssignment={this.handleDeleteAssignment}
           />
         }/>
         <Route exact path='/assignment/create' render={() =>

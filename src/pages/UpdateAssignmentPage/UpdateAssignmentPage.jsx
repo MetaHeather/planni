@@ -18,9 +18,6 @@ function UpdateAssignmentPage(props) {
        .then(setAssignment);
     },[id]);
 
-    function handleUpdateAssignment(newAssignmentData){
-       props.handleUpdateAssignment(newAssignmentData)
-    }
 
     return(
         <div className={styles.layout}>
@@ -29,7 +26,7 @@ function UpdateAssignmentPage(props) {
                 {assignment ? 
                     <UpdateAssignmentForm 
                         assignment={assignment}
-                        handleUpdateAssignment={handleUpdateAssignment}
+                        handleUpdateAssignment={props.handleUpdateAssignment}
                     /> 
                     : 
                         "Loading..."
@@ -56,7 +53,7 @@ function UpdateAssignmentForm(props) {
             <label>Title: <input onChange={ evt => setTitle(evt.target.value)} value={title} type="text"/></label>
             <label>Details: <textarea onChange={ evt => setDetails(evt.target.value)} value={details}/></label>
             <label>Due: <input onChange={ evt => setDueDate(evt.target.value)} value={date} type="datetime-local"/></label>
-            <button onClick={handleUpdateAssignment}>Save</button>
+            <ButtonLink onClick={handleUpdateAssignment}>Save</ButtonLink>
         </>    
     )
 }

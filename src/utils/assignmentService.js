@@ -4,7 +4,8 @@ export default  {
     getAllAssignments,
     createAssignment,
     getOneAssignment,
-    updateAssignment
+    updateAssignment,
+    deleteAssignment
 }
 
 const BASE_URL = '/api/assignments/';
@@ -56,3 +57,12 @@ function updateAssignment(updatedAssignment) {
     .then(res => res.json());
 }
 
+function deleteAssignment(id) {
+    return fetch(`${BASE_URL}/${id}`, {
+        method: 'DELETE',
+        headers: {
+            'Authorization': 'Bearer ' + tokenService.getToken()
+        }
+    })
+    .then(res => res.json());
+}

@@ -12,9 +12,13 @@
     font-size: 2vmin;
   }
   
-.welcomeUser {
+.header {
     color: black;
     font-family: 'Fredericka the Great', cursive;
     font-size: 5vmin;
     margin: 0 auto;
   }
+
+.link {
+  margin-left: 1vmin;
+}
