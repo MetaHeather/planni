@@ -20,7 +20,7 @@ const Assignment = props => {
       ) 
    } else {
       return (
-         <div className={styles.assignmentCard} onClick={flipCard}>
+         <div className={`${styles.assignmentCard} ${styles.assignmentCard_back}` } onClick={flipCard}>
             <ul >
                <li>Details:</li>
                <li>{props.assignment.details}</li>

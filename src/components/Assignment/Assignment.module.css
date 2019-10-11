@@ -5,6 +5,10 @@
     margin: 4vmin 0vmin;
 }
 
+.assignmentCard_back {
+    background-color: #396DAD;
+}
+
 li {
     list-style-type: none;
     font-family: 'Special Elite', cursive;

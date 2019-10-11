@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
-import styles from './AddAssignmentPage.module.css'
-import Nav from '../../components/Nav/Nav'
+import styles from './AddAssignmentPage.module.css';
+import Nav from '../../components/Nav/Nav';
+import ButtonLink from '../../components/ButtonLink/ButtonLink'
+
 
 function AddAssignmentPage(props) {
     let [title, setTitle] = useState();
@@ -19,7 +21,7 @@ function AddAssignmentPage(props) {
                 <label>Title: <input onChange={ evt => setTitle(evt.target.value)} value={title} type="text"/></label>
                 <label>Details: <textarea onChange={ evt => setDetails(evt.target.value)} value={details}/></label>
                 <label>Due: <input onChange={ evt => setDueDate(evt.target.value)}value={dueDate} type="datetime-local"/></label>
-                <button onClick={saveAssignment}>Save</button>
+                <ButtonLink onClick={saveAssignment}>Save</ButtonLink>
             </div>
         </div>
     )
