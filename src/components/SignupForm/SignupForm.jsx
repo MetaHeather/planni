@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import userService from '../../utils/userService';
+import styles from './SignupForm.module.css'
 
 class SignupForm extends Component {
 
@@ -93,7 +94,7 @@ class SignupForm extends Component {
           <div>
             <div>
               <button disabled={this.isFormInvalid()}>Sign Up</button>&nbsp;&nbsp;
-              <Link to='/'>Cancel</Link>
+              <Link className={styles.cancel} to='/'>Cancel</Link>
             </div>
           </div>
         </form>

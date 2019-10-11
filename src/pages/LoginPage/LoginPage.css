@@ -5,14 +5,21 @@
     align-items: center;
     margin-bottom: 50px;
     background-color: #173753;
+    min-height: 100vh;
   }
 
 header {
   color: white;
+  font-size: 5vmin;
 }
 
 .cancel {
   color: white;
 }
 
+.form-control {
+  height: 4vmin;
+  width: 45vmin;
+  margin: 2vmin;
+}
 
