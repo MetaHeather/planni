@@ -11,17 +11,21 @@ const Assignment = props => {
    }
    if(viewFront) {
       return(
-         <ul onClick={flipCard}>
-            <li>{props.assignment.title}</li>
-            <li>{props.assignment.dueDate}</li>
-         </ul>
+         <div className={styles.assignmentCard} onClick={flipCard}>
+            <ul>
+               <li>Title: {props.assignment.title}</li>
+               <li >Due Date: {props.assignment.dueDate}</li>
+            </ul>
+         </div>
       ) 
    } else {
       return (
-         <ul onClick={flipCard}>
-         <li>{props.assignment.details}</li>
-         <li>{props.assignment.dueDate}</li>
-      </ul>
+         <div className={styles.assignmentCard} onClick={flipCard}>
+            <ul >
+               <li>Details:</li>
+               <li>{props.assignment.details}</li>
+            </ul>
+         </div>
       )
    }
 }

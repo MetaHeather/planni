@@ -1,0 +1,17 @@
+.createPage {
+
+    background-color: #173753;
+    padding: 2vmin;
+}
+
+.createHeader {
+    font-family: 'Special Elite', cursive;
+    font-size: 4vmin;
+    color: white;
+}
+
+.layout {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    min-height: 100vh;
+}

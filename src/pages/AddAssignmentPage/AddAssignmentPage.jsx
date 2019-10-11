@@ -12,16 +12,16 @@ function AddAssignmentPage(props) {
     }
 
     return(
-        <>
-            <Nav 
-                user={props.user}
-            />
-            <h1>Create Assignment</h1>
-            <label>Title: <input onChange={ evt => setTitle(evt.target.value)} value={title} type="text"/></label>
-            <label>Details: <textarea onChange={ evt => setDetails(evt.target.value)} value={details}/></label>
-            <label>Due: <input onChange={ evt => setDueDate(evt.target.value)}value={dueDate} type="datetime-local"/></label>
-            <button onClick={saveAssignment}>Save</button>
-        </>
+        <div className={styles.layout}>
+            <Nav user={props.user} />
+            <div className={styles.createPage}>
+                <h1 className={styles.createHeader}>Create Assignment</h1>
+                <label>Title: <input onChange={ evt => setTitle(evt.target.value)} value={title} type="text"/></label>
+                <label>Details: <textarea onChange={ evt => setDetails(evt.target.value)} value={details}/></label>
+                <label>Due: <input onChange={ evt => setDueDate(evt.target.value)}value={dueDate} type="datetime-local"/></label>
+                <button onClick={saveAssignment}>Save</button>
+            </div>
+        </div>
     )
 }
 

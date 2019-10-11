@@ -1,13 +1,20 @@
 .NavBar {
     display: flex;
-    justify-content: center;
-    margin: 0 0 20px;
+    margin: 0;
+    background-color:#60E1E0;
+    padding: 2vmin;
+    align-items: center;
   }
   
-.link {
+.logout {
     margin: 0 10px;
+    white-space: nowrap;
+    font-size: 2vmin;
   }
   
-.welcome {
-    color: grey;
+.welcomeUser {
+    color: black;
+    font-family: 'Fredericka the Great', cursive;
+    font-size: 5vmin;
+    margin: 0 auto;
   }

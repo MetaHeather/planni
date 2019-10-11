@@ -42,11 +42,9 @@ async function deleteOne(req, res) {
 
 async function update(req, res) {
     try{
-        console.log("update")
         //find assignment that matches both the logged in user and the assignment id
         const updatedAssignment = await Assignment
             .findOneAndUpdate({_id: req.params.id, creator: req.user._id}, req.body, {new: true});
-        console.log("updatedAssignment: ",updatedAssignment);
         res.status(201).json(updatedAssignment);
     } catch (err) {
         res.status(400).json(err);

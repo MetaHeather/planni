@@ -1,0 +1,21 @@
+.homePage {
+    background-color: #173753;
+    color: white;
+    padding: 2vmin;
+}
+
+.createLink {
+    background-color: #81BA7A;
+
+}
+
+h1 {
+    margin: 0;
+}
+
+.assignmentsHeader {
+    padding: 2vmin;
+    font-family: 'Special Elite', cursive;
+    font-size: 4vmin;
+}
+

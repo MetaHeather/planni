@@ -1,42 +1,44 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Nav from '../../components/Nav/Nav';
-import Assignment from '../../components/Assignment/Assignment'
+import Assignment from '../../components/Assignment/Assignment';
+import ButtonLink from '../../components/ButtonLink/ButtonLink';
 import styles from './HomePage.module.css';
 
 const HomePage = (props) => {
   return (
-    <div>
+    <>
       <Nav
         user={props.user}
         handleLogout={props.handleLogout}
       />
-      <header>
-       <h1>Your Assignments</h1> 
-       <Link to='/assignment/create'>
-        Create Assignment
-       </Link>
-      </header>
-      
-      
-      {props.assignments ? 
-          <Assignments 
-            assignments={props.assignments}
-          /> 
-        : 
-          "Loading..."
-        }
-    </div>
+      <div className={styles.homePage}>
+        <header>
+        <h1 className={styles.assignmentsHeader}>Your Assignments</h1> 
+        <ButtonLink className={styles.createLink} to='/assignment/create'>
+          Create Assignment
+        </ButtonLink>
+        </header>
+        
+        
+        {props.assignments ? 
+            <Assignments 
+              assignments={props.assignments}
+            /> 
+          : 
+            "Loading..."
+          }
+      </div>  
+    </>
   );
 };
 
-function Assignments(props) {
-  return(
+function Assignments(props) {  return(
     props.assignments.map(assignment => {
       return(
-        <Assignment 
-          assignment={assignment}
-        />
+          <Assignment 
+            assignment={assignment}
+          />
       )
     })    
   )

@@ -63,7 +63,7 @@ class LoginPage extends Component {
           <div>
             <div>
               <button>Log In</button>&nbsp;&nbsp;&nbsp;
-              <Link to='/'>Cancel</Link>
+              <Link className="cancel" to='/'>Cancel</Link>
             </div>
           </div>
         </form>

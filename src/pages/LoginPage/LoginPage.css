@@ -4,4 +4,15 @@
     justify-content: center;
     align-items: center;
     margin-bottom: 50px;
+    background-color: #173753;
   }
+
+header {
+  color: white;
+}
+
+.cancel {
+  color: white;
+}
+
+
